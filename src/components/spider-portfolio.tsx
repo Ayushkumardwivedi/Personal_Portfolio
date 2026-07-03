@@ -327,14 +327,14 @@ function Hero() {
         >
           <div className="clip-panel border-2 border-secondary bg-black/70 px-5 py-3 backdrop-blur">
             <p className="max-w-xl text-lg text-foreground/90" style={{ fontFamily: "Rajdhani", fontWeight: 500 }}>
-              Full-stack developer, AI engineer, and after-hours vigilante of clean architecture. Swinging between systems, shipping hackathon-grade product.
+              Computer Science Engineer passionate about Software Engineering, Artificial Intelligence, and Building scalable systems that solve Real-World Problems. Swinging between systems, delivering AI-powered software solutions.
             </p>
           </div>
         </motion.div>
 
         <div className="mt-10 flex flex-wrap gap-4">
           <HeroButton primary>ENTER THE CITY ▸</HeroButton>
-          <HeroButton>DOWNLOAD DOSSIER</HeroButton>
+          <a href= "/Ayush Kumar Dwivedi Resume.pdf" download="Ayush Kumar Dwivedi Resume.pdf"> <HeroButton>DOWNLOAD RESUME</HeroButton> </a>
         </div>
         </div>
 
@@ -352,7 +352,7 @@ function Hero() {
             style={{ clipPath: "polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%)" }}
           >
             <img
-              src={ayushPhoto.url}
+              src="/Ayush.png"
               alt="Ayush Kumar Dwivedi"
               className="h-full w-full object-cover"
             />
@@ -369,7 +369,7 @@ function Hero() {
             <span className="text-neon-blue">SCROLL ↓</span>
             <span className="opacity-60">TO PATROL ROOFTOPS</span>
           </div>
-          <Billboard className="border-secondary text-neon-blue">BATTERY 82% ⚡</Billboard>
+          <Billboard className="border-secondary text-neon-blue">BATTERY 100% ⚡</Billboard>
         </div>
       </motion.div>
 
@@ -409,13 +409,13 @@ function About() {
             className="clip-panel col-span-12 border-2 border-primary bg-card p-8 md:col-span-7"
           >
             <p className="text-2xl leading-relaxed text-foreground/90" style={{ fontFamily: "Rajdhani", fontWeight: 500 }}>
-              I engineer <span className="text-neon-red">high-velocity products</span> at the intersection of AI, distributed systems, and cinematic UX. By day: full-stack builder. By night: hackathon strike-force. Every commit is a web-line to the next skyscraper.
+              I engineer <span className="text-neon-red">intelligent software</span> by combining AI, backend development, workflow automation, and modern cloud technologies. Whether it's building Django applications, designing LLM-powered solutions, orchestrating n8n workflows, or developing blockchain platforms, I focus on creating scalable systems that solve real-world problems.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
               {[
-                { k: "24+", v: "PROJECTS SHIPPED" },
-                { k: "12", v: "HACKATHONS" },
-                { k: "6", v: "AI SYSTEMS LIVE" },
+                { k: "8+", v: "PROJECTS SHIPPED" },
+                { k: "12+", v: "HACKATHONS" },
+                { k: "3", v: "INDUSTRY INTERNSHIPS" },
               ].map((s) => (
                 <div key={s.v} className="border-l-2 border-secondary pl-3">
                   <div className="text-3xl font-black text-neon-blue" style={{ fontFamily: "Orbitron" }}>{s.k}</div>
@@ -432,7 +432,7 @@ function About() {
             className="col-span-12 flex flex-col gap-4 md:col-span-5"
           >
             <HoloCard label="IDENTITY" value="Ayush K. Dwivedi" />
-            <HoloCard label="CLASS" value="Full-Stack / AI Engineer" />
+            <HoloCard label="CLASS" value="Software Engineer / AI Engineer" />
             <HoloCard label="LOCATION" value="Earth-6116 // India" />
             <HoloCard label="STATUS" value="AVAILABLE FOR MISSIONS" glow />
           </motion.div>
@@ -453,9 +453,18 @@ function HoloCard({ label, value, glow }: { label: string; value: string; glow?:
           <div className="text-[10px] tracking-[0.3em] text-muted-foreground" style={{ fontFamily: "Share Tech Mono" }}>
             /// {label}
           </div>
-          <div className={`text-xl font-bold ${glow ? "text-neon-red" : "text-neon-blue"}`} style={{ fontFamily: "Orbitron" }}>
-            {value}
-          </div>
+          <div
+  className={`text-xl font-bold ${
+    value === "AVAILABLE FOR MISSIONS"
+      ? "text-green-400"
+      : glow
+      ? "text-neon-red"
+      : "text-neon-blue"
+  }`}
+  style={{ fontFamily: "Orbitron" }}
+>
+  {value}
+</div>
         </div>
         <span className={`h-3 w-3 ${glow ? "bg-primary" : "bg-secondary"} animate-flicker`} />
       </div>
@@ -711,10 +720,10 @@ function Contact() {
             className="md:col-span-2 space-y-4"
           >
             {[
-              { l: "EMAIL", v: "ayush@dwivedi.dev" },
-              { l: "GITHUB", v: "@ayushkd" },
-              { l: "LINKEDIN", v: "/in/ayushkd" },
-              { l: "TWITTER", v: "@ayush_swings" },
+              { l: "EMAIL", v: "ayushdwivedi12381@gmail.com" },
+              { l: "GITHUB", v: "https://github.com/Ayushkumardwivedi" },
+              { l: "LINKEDIN", v: "https://www.linkedin.com/in/ayushdwivedi-aiml/" },
+              { l: "INSTAGRAM", v: "@helloyush" },
             ].map((c) => (
               <HoloCard key={c.l} label={c.l} value={c.v} />
             ))}
@@ -743,13 +752,13 @@ function Field({ label, placeholder, textarea }: { label: string; placeholder: s
 // ============ NAV + FOOTER ============
 function Nav() {
   const [open, setOpen] = useState(false);
-  const links = ["ORIGIN", "MISSIONS", "SKILLS", "CHRONICLE", "TROPHIES", "SIGNAL"];
+  const links = ["ORIGIN", "MISSIONS", "SKILLS", "CHRONICLE", "TROPHIES", "CONNECT"];
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/70 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8"><SpiderGlyph /></div>
-          <span className="text-sm font-black tracking-[0.3em] text-foreground" style={{ fontFamily: "Orbitron" }}>A.K.D</span>
+          <div className="h-8 w-8"><img src="/sarvagya-coders.png" /></div>
+          <span className="text-sm font-black tracking-[0.3em] text-foreground" style={{ fontFamily: "Orbitron" }}>Sarvagya Coders</span>
         </div>
         <div className="hidden gap-6 md:flex">
           {links.map((l) => (
@@ -795,7 +804,7 @@ export function SpiderPortfolio() {
       <div id="skills"><SkillsNetwork /></div>
       <div id="chronicle"><Timeline /></div>
       <div id="trophies"><Achievements /></div>
-      <div id="signal"><Contact /></div>
+      <div id="connect"><Contact /></div>
       <Footer />
     </main>
   );
