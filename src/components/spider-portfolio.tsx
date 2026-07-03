@@ -474,12 +474,12 @@ function HoloCard({ label, value, glow }: { label: string; value: string; glow?:
 
 // ============ PROJECTS ============
 const PROJECTS = [
-  { title: "NEURAL WEB", tag: "AI / LLM", desc: "Multi-agent RAG platform orchestrating 40k+ docs with vector recall under 80ms.", stack: ["Next.js", "Python", "pgvector", "OpenAI"] },
-  { title: "CITY-SYNC", tag: "DISTRIBUTED", desc: "Real-time collab whiteboard with CRDT sync across 500+ concurrent nodes.", stack: ["Rust", "WebRTC", "Yjs"] },
-  { title: "SPIDR-CLI", tag: "DEVTOOL", desc: "Terminal-native code review agent that swings through PRs and lands verdicts.", stack: ["Go", "LLM", "GitHub API"] },
-  { title: "PATROL DASH", tag: "PLATFORM", desc: "Ops dashboard fusing 12 microservices into one holographic mission control.", stack: ["React", "GraphQL", "Grafana"] },
-  { title: "SIGNAL-6", tag: "MOBILE / AI", desc: "On-device speech-to-intent model shipping to 20k+ nightly active users.", stack: ["Swift", "CoreML", "Whisper"] },
-  { title: "WEB-SHOOTER", tag: "OPEN SOURCE", desc: "Zero-config edge-function bundler adopted across 300+ repos.", stack: ["TypeScript", "esbuild", "Wasm"] },
+  { title: "EEG SEIZURE PREDICTION", tag: "AI / RESEARCH", desc: "Transformer-enhanced CNN-LSTM architecture for epileptic seizure prediction, achieving 99.42% accuracy on the CHB-MIT EEG dataset.", stack: ["TensorFlow", "Python", "CNN-LSTM", "Transformer"] },
+  { title: "CHEMICAL TRACK", tag: "BLOCKCHAIN", desc: "Blockchain-based platform for secure tracking of dual-use chemicals using Ethereum smart contracts and Django.", stack: ["Django", "Ethereum", "Solidity", "Web3.py"] },
+  { title: "SPEAKERFLOW AI", tag: "AI AUTOMATION", desc: "Built AI-powered business automation workflows using LLMs, prompt engineering, and n8n for marketing, CRM, and operations.", stack: ["n8n", "LLM", "OpenAI", "Python"] },
+  { title: "INDORESMART", tag: "WEB PLATFORM", desc: "Multi-service city platform integrating coworking, properties, events, e-commerce, blogs, and professional courses.", stack: ["Django", "PostgreSQL", "REST API"] },
+  { title: "DRAFT TRACKING", tag: "BACKEND SYSTEM", desc: "Developed a shipment and batch tracking system with role-based workflows, authentication, and admin management.", stack: ["Python", "Django", "MySQL"] },
+  { title: "BUSINESS AI SUITE", tag: "AI SOLUTION", desc: "Collection of AI solutions including chatbots, workflow automation, lead generation, content generation, and business intelligence tools.", stack: ["Generative AI", "n8n", "Python", "OpenAI API"] },
 ];
 
 function Projects() {
@@ -543,18 +543,32 @@ function ProjectCard({ project, index }: { project: (typeof PROJECTS)[number]; i
 
 // ============ SKILLS NETWORK ============
 const SKILLS = [
-  { n: "React", x: 50, y: 50, size: 40, cat: "core" },
-  { n: "TypeScript", x: 22, y: 30, size: 30, cat: "core" },
-  { n: "Node", x: 78, y: 32, size: 28, cat: "core" },
-  { n: "Python", x: 30, y: 72, size: 30, cat: "ai" },
-  { n: "Rust", x: 72, y: 74, size: 24, cat: "systems" },
-  { n: "Go", x: 15, y: 55, size: 22, cat: "systems" },
-  { n: "PostgreSQL", x: 85, y: 55, size: 26, cat: "data" },
-  { n: "LLM Ops", x: 40, y: 18, size: 24, cat: "ai" },
-  { n: "GSAP", x: 60, y: 18, size: 20, cat: "motion" },
-  { n: "Three.js", x: 88, y: 82, size: 22, cat: "motion" },
-  { n: "Docker", x: 12, y: 82, size: 22, cat: "infra" },
-  { n: "AWS", x: 92, y: 15, size: 22, cat: "infra" },
+  // Core
+  { n: "Python", x: 50, y: 50, size: 42, cat: "core" },
+  { n: "Django", x: 24, y: 32, size: 34, cat: "backend" },
+  { n: "REST APIs", x: 76, y: 32, size: 30, cat: "backend" },
+
+  // AI
+  { n: "Machine Learning", x: 28, y: 70, size: 32, cat: "ai" },
+  { n: "Generative AI", x: 72, y: 70, size: 30, cat: "ai" },
+  { n: "Prompt Engineering", x: 52, y: 18, size: 28, cat: "ai" },
+  { n: "LLMs", x: 86, y: 18, size: 24, cat: "ai" },
+
+  // Automation
+  { n: "n8n", x: 14, y: 54, size: 26, cat: "automation" },
+  { n: "OpenAI API", x: 88, y: 54, size: 24, cat: "automation" },
+
+  // Blockchain
+  { n: "Ethereum", x: 16, y: 84, size: 22, cat: "blockchain" },
+  { n: "Solidity", x: 34, y: 86, size: 22, cat: "blockchain" },
+  { n: "Web3.py", x: 54, y: 86, size: 22, cat: "blockchain" },
+
+  // Database
+  { n: "PostgreSQL", x: 82, y: 84, size: 24, cat: "database" },
+
+  // Computer Science
+  { n: "DSA", x: 10, y: 18, size: 22, cat: "cs" },
+  { n: "Git", x: 94, y: 68, size: 20, cat: "tools" },
 ];
 
 function SkillsNetwork() {
