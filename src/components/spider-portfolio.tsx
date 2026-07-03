@@ -625,11 +625,78 @@ function SkillsNetwork() {
 
 // ============ TIMELINE ============
 const TIMELINE = [
-  { year: "2026", title: "AI Systems Engineer", org: "Independent", body: "Shipping RAG + agent infra for enterprise clients. 6 production LLM systems live." },
-  { year: "2025", title: "Hackathon Grand Prize", org: "Global AI Summit", body: "Built multi-agent city-planning simulator in 36 hours. 1st of 240 teams." },
-  { year: "2024", title: "Full-Stack Lead", org: "Startup Studio", body: "Led 4-engineer team, shipped 3 SaaS products, scaled to 20k MAU." },
-  { year: "2023", title: "Open Source Debut", org: "GitHub", body: "Web-Shooter bundler crossed 1.2k stars; adopted by 300+ repos." },
-  { year: "2022", title: "First Web Line", org: "College", body: "First hackathon win. First late-night deploy. First taste of the rooftops." },
+  {
+    year: "Jun 2026",
+    title: "IEEE Research Publication",
+    org: "IEEE IC-EETA 2025",
+    body: "Published 'Transformer-Based Temporal Enhancement for CNN-LSTM Networks in Epileptic Seizure Prediction', introducing Transformer-enhanced CNN-LSTM models for EEG seizure prediction.",
+  },
+  {
+    year: "Mar–Apr 2026",
+    title: "Aviation Systems Training",
+    org: "Airports Authority of India",
+    body: "Completed vocational training at Dumna Airport, gaining hands-on exposure to Air Traffic Control, CNS systems, navigation technologies, and airport operations.",
+  },
+  {
+    year: "Feb 2026",
+    title: "Advanced AI/ML in Telecom Analytics",
+    org: "BSNL • BRBRAITT",
+    body: "Worked on telecom analytics, churn prediction, Python, SQL, Power BI, and machine learning applications for large-scale communication networks.",
+  },
+  {
+    year: "Feb 2026",
+    title: "GenAI Forge Hackathon",
+    org: "ICFAI University",
+    body: "Built KrishiSahay, an AI-powered agricultural assistant leveraging Generative AI to support farmers with intelligent recommendations.",
+  },
+  {
+    year: "Nov 2025",
+    title: "Led Team Sarvagya Coders",
+    org: "Navonmesh National Hackathon",
+    body: "Led a multidisciplinary team through a 24-hour national hackathon, transforming innovative ideas into working prototypes under tight deadlines.",
+  },
+  {
+    year: "May 2025",
+    title: "AI Solutions Engineer Intern",
+    org: "Mittal Alliance Pvt. Ltd.",
+    body: "Engineered AI-powered automation systems, LLM workflows, prompt engineering frameworks, and intelligent business solutions for international clients.",
+  },
+  {
+    year: "Apr 2025",
+    title: "IDEATHON 2.0 Grand Finalist",
+    org: "Pimpri Chinchwad University",
+    body: "Led Team Sarvagya Coders to the Grand Finale, selected among the Top 43 teams from over 1,500 nationwide.",
+  },
+  {
+    year: "Feb 2025",
+    title: "Hackathon Volunteer & Coordinator",
+    org: "AI in Healthcare Hackathon",
+    body: "Contributed to organizing a national AI hackathon while developing leadership, coordination, and event management skills.",
+  },
+  {
+    year: "Dec 2024",
+    title: "I Love Hackathon Grand Finalist",
+    org: "Indore Edition",
+    body: "Advanced to the Grand Finale, finishing among the Top 14 teams while developing a blockchain-based solution.",
+  },
+  {
+    year: "Nov 2024",
+    title: "International Innovation Challenge Finalist",
+    org: "Manipal University Jaipur",
+    body: "Selected among 764 teams for the 36-hour national hackathon and advanced to the Grand Finale with Team Sarvagya Coders.",
+  },
+  {
+    year: "Nov 2024",
+    title: "Google AI/ML Tech Camp",
+    org: "Google for Developers × EduSkills",
+    body: "Completed an intensive AI/ML bootcamp covering modern machine learning concepts, practical AI development, and industry best practices.",
+  },
+  {
+    year: "Jun 2024",
+    title: "Python Developer Intern",
+    org: "Mech Buddy",
+    body: "Started my professional software engineering journey by building Django applications, REST APIs, and scalable backend systems.",
+  },
 ];
 
 function Timeline() {
@@ -666,10 +733,40 @@ function Timeline() {
 // ============ ACHIEVEMENTS / HACKATHONS / CERTS ============
 function Achievements() {
   const items = [
-    { cat: "HACKATHON", list: ["Global AI Summit — 1st / 240", "SmartCity Hack — Winner", "DevJam ▸ Best UX", "OpenAI Hack ▸ Finalist"] },
-    { cat: "CERTIFICATIONS", list: ["AWS Solutions Architect", "TensorFlow Developer", "MongoDB Associate", "Cloudflare Edge"] },
-    { cat: "RECOGNITION", list: ["GitHub Arctic Vault Contributor", "Top 1% Kaggle Notebook", "Speaker ▸ ReactConf India", "Featured ▸ Product Hunt"] },
-  ];
+  {
+    cat: "ACHIEVEMENTS",
+    list: [
+      "IEEE Published Research Paper",
+      "3× National Hackathon Grand Finalist",
+      "Founder • Sarvagya Coders",
+      "AI Solutions Engineer Intern",
+      "Python Developer Intern",
+      "Led Multiple National Hackathon Teams",
+    ],
+  },
+  {
+    cat: "CERTIFICATIONS",
+    list: [
+      "Cisco CCNA 1, 2 & 3",
+      "Cisco Python Essentials 1 & 2",
+      "Google AI Builders Lab",
+      "Google AI/ML Tech Camp",
+      "Microsoft Azure AI",
+      "LinkedIn Learning • ChatGPT API",
+    ],
+  },
+  {
+    cat: "LEARNING",
+    list: [
+      "BSNL • Advanced AI/ML in Telecom Analytics",
+      "Airports Authority of India • Aviation Systems",
+      "Flipkart GRiD 6.0",
+      "India Blockchain Month Final Round",
+      "National Coding League Qualifier",
+      "Microsoft Python Courses",
+    ],
+  },
+];
   return (
     <section className="relative overflow-hidden bg-background py-32">
       <div className="relative mx-auto max-w-7xl px-6">
@@ -706,48 +803,64 @@ function Achievements() {
 
 // ============ CONTACT ============
 function Contact() {
+  const contacts = [
+    {
+      l: "EMAIL",
+      v: "ayushdwivedi12381@gmail.com",
+      href: "mailto:ayushdwivedi12381@gmail.com",
+    },
+    {
+      l: "GITHUB",
+      v: "github.com/Ayushkumardwivedi",
+      href: "https://github.com/Ayushkumardwivedi",
+    },
+    {
+      l: "LINKEDIN",
+      v: "linkedin.com/in/ayushdwivedi-aiml",
+      href: "https://www.linkedin.com/in/ayushdwivedi-aiml/",
+    },
+    {
+      l: "INSTAGRAM",
+      v: "@helloyush",
+      href: "https://instagram.com/helloyush",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-background py-32">
-      <div className="absolute inset-x-0 bottom-0 h-1/2 opacity-40"><CitySkyline /></div>
+      <div className="absolute inset-x-0 bottom-0 h-1/2 opacity-40">
+        <CitySkyline />
+      </div>
+
       <div className="relative mx-auto max-w-5xl px-6">
-        <SectionTitle index="06" title="SEND SIGNAL" subtitle="OPEN A COMMS CHANNEL" />
-        <div className="grid gap-6 md:grid-cols-5">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="clip-panel md:col-span-3 border-2 border-primary bg-card/80 p-8 backdrop-blur"
-            style={{ boxShadow: "var(--shadow-neon-red)" }}
-          >
-            <div className="mb-6 flex items-center gap-2 text-xs tracking-[0.3em] text-neon-red" style={{ fontFamily: "Share Tech Mono" }}>
-              <span className="h-2 w-2 animate-flicker bg-primary" /> BROADCAST FORM ▸ ENCRYPTED
-            </div>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <Field label="ALIAS" placeholder="Your name" />
-              <Field label="FREQUENCY" placeholder="you@domain.com" />
-              <Field label="TRANSMISSION" placeholder="What's the mission?" textarea />
-              <button className="clip-slant border-2 border-primary bg-primary px-8 py-4 font-bold uppercase tracking-widest text-primary-foreground transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_oklch(0.62_0.24_25/0.8)]" style={{ fontFamily: "Orbitron" }}>
-                LAUNCH ▸ THWIP
-              </button>
-            </form>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="md:col-span-2 space-y-4"
-          >
-            {[
-              { l: "EMAIL", v: "ayushdwivedi12381@gmail.com" },
-              { l: "GITHUB", v: "https://github.com/Ayushkumardwivedi" },
-              { l: "LINKEDIN", v: "https://www.linkedin.com/in/ayushdwivedi-aiml/" },
-              { l: "INSTAGRAM", v: "@helloyush" },
-            ].map((c) => (
-              <HoloCard key={c.l} label={c.l} value={c.v} />
-            ))}
-          </motion.div>
-        </div>
+        <SectionTitle
+          index="06"
+          title="CONNECT"
+          subtitle="LET'S BUILD SOMETHING GREAT"
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl space-y-5"
+        >
+          {contacts.map((c) => (
+            <a
+              key={c.l}
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+            >
+              <HoloCard label={c.l} value={c.v} />
+            </a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
 }
-
 function Field({ label, placeholder, textarea }: { label: string; placeholder: string; textarea?: boolean }) {
   const Tag = textarea ? "textarea" : "input";
   return (
