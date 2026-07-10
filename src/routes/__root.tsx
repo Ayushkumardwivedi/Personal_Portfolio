@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ayush Kumar Dwivedi — Full-Stack Developer & AI Engineer" },
-      { name: "description", content: "Portfolio of Ayush Kumar Dwivedi: full-stack developer, AI engineer, hackathon winner. Building the future one line at a time." },
+      { title: "Ayush Kumar Dwivedi - AI Engineer" },
+      { name: "description", content: "Portfolio of Ayush Kumar Dwivedi: AI engineer, full-stack developer, hackathon winner. Building the future one line at a time." },
       { name: "author", content: "Ayush Kumar Dwivedi" },
-      { property: "og:title", content: "Ayush Kumar Dwivedi — Full-Stack Developer & AI Engineer" },
+      { property: "og:title", content: "Ayush Kumar Dwivedi - AI Engineer" },
       { property: "og:description", content: "Immersive portfolio of a developer building AI-powered products, hackathon projects, and cinematic web experiences." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
