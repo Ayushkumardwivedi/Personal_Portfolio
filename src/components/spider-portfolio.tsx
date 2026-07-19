@@ -414,7 +414,7 @@ function About() {
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
               {[
                 { k: "8+", v: "PROJECTS SHIPPED" },
-                { k: "12+", v: "HACKATHONS" },
+                { k: "12", v: "HACKATHONS" },
                 { k: "3", v: "INDUSTRY INTERNSHIPS" },
               ].map((s) => (
                 <div key={s.v} className="border-l-2 border-secondary pl-3">
@@ -431,9 +431,10 @@ function About() {
             viewport={{ once: true }}
             className="col-span-12 flex flex-col gap-4 md:col-span-5"
           >
+            <ComicFrame src="/origin.jpg" label="ORIGIN // FIELD SHOT" accent="red" aspect="4/3" />
             <HoloCard label="IDENTITY" value="Ayush K. Dwivedi" />
             <HoloCard label="CLASS" value="Software Engineer / AI Engineer" />
-            <HoloCard label="LOCATION" value="Earth-6116 // India" />
+            <HoloCard label="LOCATION" value="Earth-616 // India" />
             <HoloCard label="STATUS" value="AVAILABLE FOR MISSIONS" glow />
           </motion.div>
         </div>
@@ -473,6 +474,50 @@ function HoloCard({ label, value, glow }: { label: string; value: string; glow?:
 }
 
 // ============ PROJECTS ============
+function ComicFrame({
+  src,
+  label,
+  accent = "red",
+  aspect = "4/3",
+}: {
+  src: string;
+  label: string;
+  accent?: "red" | "blue";
+  aspect?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  const color = accent === "red" ? "oklch(0.62 0.24 25)" : "oklch(0.68 0.22 250)";
+  const shadow = accent === "red" ? "var(--shadow-neon-red)" : "var(--shadow-neon-blue)";
+  return (
+    <div className="clip-panel relative border-2 bg-black" style={{ borderColor: color, boxShadow: shadow, aspectRatio: aspect }}>
+      <div className="absolute left-2 top-2 z-10 border px-2 py-0.5 text-[9px] tracking-[0.3em]" style={{ color, borderColor: color, fontFamily: "Share Tech Mono", background: "oklch(0 0 0 / 0.6)" }}>
+        ▸ {label}
+      </div>
+      <div className="absolute right-2 top-2 z-10 h-2 w-2 animate-flicker" style={{ background: color }} />
+      <span className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2" style={{ borderColor: color }} />
+      <span className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2" style={{ borderColor: color }} />
+      <span className="absolute bottom-0 left-0 h-4 w-4 border-b-2 border-l-2" style={{ borderColor: color }} />
+      <span className="absolute bottom-0 right-0 h-4 w-4 border-b-2 border-r-2" style={{ borderColor: color }} />
+      {!failed ? (
+        <img
+          src={src}
+          alt={label}
+          onError={() => setFailed(true)}
+          className="absolute inset-0 h-full w-full object-contain"
+          style={{ filter: "contrast(1.05) saturate(1.1)" }}
+        />
+      ) : (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center" style={{ background: "linear-gradient(135deg, oklch(0.10 0.04 260), oklch(0.05 0.02 260))" }}>
+          <div className="text-[10px] tracking-[0.3em]" style={{ color, fontFamily: "Share Tech Mono" }}>DROP IMAGE AT</div>
+          <div className="break-all text-xs text-foreground" style={{ fontFamily: "Share Tech Mono" }}>public{src}</div>
+        </div>
+      )}
+      <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 55%, oklch(0 0 0 / 0.75))" }} />
+    </div>
+  );
+}
+
+
 const PROJECTS = [
   { title: "EEG SEIZURE PREDICTION", tag: "AI / RESEARCH", desc: "Transformer-enhanced CNN-LSTM architecture for epileptic seizure prediction, achieving 99.42% accuracy on the CHB-MIT EEG dataset.", stack: ["TensorFlow", "Python", "CNN-LSTM", "Transformer"] },
   { title: "CHEMICAL TRACK", tag: "BLOCKCHAIN", desc: "Blockchain-based platform for secure tracking of dual-use chemicals using Ethereum smart contracts and Django.", stack: ["Django", "Ethereum", "Solidity", "Web3.py"] },
@@ -706,6 +751,7 @@ function Timeline() {
         <SectionTitle index="04" title="CHRONICLE" subtitle="MISSION TIMELINE" />
         <div className="relative">
           <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-primary via-secondary to-primary md:left-1/2" />
+
           {TIMELINE.map((t, i) => (
             <motion.div
               key={t.year}
@@ -713,15 +759,45 @@ function Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.08 }}
-              className={`relative mb-10 flex items-center gap-6 pl-12 md:pl-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+              className={`relative mb-10 flex items-center gap-6 pl-12 md:pl-0 ${
+                i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
             >
-              <div className="absolute left-2 h-4 w-4 rotate-45 border-2 border-primary bg-background md:left-1/2 md:-translate-x-1/2" style={{ boxShadow: "var(--shadow-neon-red)" }} />
+              <div
+                className="absolute left-2 h-4 w-4 rotate-45 border-2 border-primary bg-background md:left-1/2 md:-translate-x-1/2"
+                style={{ boxShadow: "var(--shadow-neon-red)" }}
+              />
+
               <div className="clip-panel w-full border-2 border-border bg-card p-6 md:w-[45%]">
-                <div className="mb-1 text-xs tracking-widest text-neon-blue" style={{ fontFamily: "Share Tech Mono" }}>{t.year} ▸ {t.org}</div>
-                <h3 className="mb-2 text-2xl font-black uppercase text-foreground">{t.title}</h3>
-                <p className="text-sm text-muted-foreground" style={{ fontFamily: "Rajdhani" }}>{t.body}</p>
+                <div
+                  className="mb-1 text-xs tracking-widest text-neon-blue"
+                  style={{ fontFamily: "Share Tech Mono" }}
+                >
+                  {t.year} ▸ {t.org}
+                </div>
+
+                <h3 className="mb-2 text-2xl font-black uppercase text-foreground">
+                  {t.title}
+                </h3>
+
+                <p
+                  className="text-sm text-muted-foreground"
+                  style={{ fontFamily: "Rajdhani" }}
+                >
+                  {t.body}
+                </p>
               </div>
-              <div className="hidden w-[45%] md:block" />
+
+              {/* IMAGE PANEL (added from Version 2) */}
+              <div className="hidden w-[45%] md:block">
+                <ComicFrame
+                  src={`/chronicle-${i + 1}.jpg`}
+                  label={`${t.year} // ARCHIVE`}
+                  accent={i % 2 === 0 ? "blue" : "red"}
+                  aspect="16/10"
+                />
+              </div>
+
             </motion.div>
           ))}
         </div>
@@ -733,44 +809,56 @@ function Timeline() {
 // ============ ACHIEVEMENTS / HACKATHONS / CERTS ============
 function Achievements() {
   const items = [
-  {
-    cat: "ACHIEVEMENTS",
-    list: [
-      "IEEE Published Research Paper",
-      "3× National Hackathon Grand Finalist",
-      "Founder • Sarvagya Coders",
-      "AI Solutions Engineer Intern",
-      "Python Developer Intern",
-      "Led Multiple National Hackathon Teams",
-    ],
-  },
-  {
-    cat: "CERTIFICATIONS",
-    list: [
-      "Cisco CCNA 1, 2 & 3",
-      "Cisco Python Essentials 1 & 2",
-      "Google AI Builders Lab",
-      "Google AI/ML Tech Camp",
-      "Microsoft Azure AI",
-      "LinkedIn Learning • ChatGPT API",
-    ],
-  },
-  {
-    cat: "LEARNING",
-    list: [
-      "BSNL • Advanced AI/ML in Telecom Analytics",
-      "Airports Authority of India • Aviation Systems",
-      "Flipkart GRiD 6.0",
-      "India Blockchain Month Final Round",
-      "National Coding League Qualifier",
-      "Microsoft Python Courses",
-    ],
-  },
-];
+    {
+      cat: "ACHIEVEMENTS",
+      img: "/trophy-1.jpg",
+      accent: "red" as const,
+      list: [
+        "IEEE Published Research Paper",
+        "3× National Hackathon Grand Finalist",
+        "Founder • Sarvagya Coders",
+        "AI Solutions Engineer Intern",
+        "Python Developer Intern",
+        "Led Multiple National Hackathon Teams",
+      ],
+    },
+    {
+      cat: "CERTIFICATIONS",
+      img: "/trophy-2.jpg",
+      accent: "blue" as const,
+      list: [
+        "Cisco CCNA 1, 2 & 3",
+        "Cisco Python Essentials 1 & 2",
+        "Google AI Builders Lab",
+        "Google AI/ML Tech Camp",
+        "Microsoft Azure AI",
+        "LinkedIn Learning • ChatGPT API",
+      ],
+    },
+    {
+      cat: "LEARNING",
+      img: "/trophy-3.jpg",
+      accent: "red" as const,
+      list: [
+        "BSNL • Advanced AI/ML in Telecom Analytics",
+        "Airports Authority of India • Aviation Systems",
+        "Flipkart GRiD 6.0",
+        "India Blockchain Month Final Round",
+        "National Coding League Qualifier",
+        "Microsoft Python Courses",
+      ],
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-background py-32">
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionTitle index="05" title="TROPHY WALL" subtitle="RECEIPTS FROM THE FIELD" />
+        <SectionTitle
+          index="05"
+          title="TROPHY WALL"
+          subtitle="RECEIPTS FROM THE FIELD"
+        />
+
         <div className="grid gap-6 md:grid-cols-3">
           {items.map((col, i) => (
             <motion.div
@@ -781,13 +869,37 @@ function Achievements() {
               transition={{ delay: i * 0.08 }}
               className="clip-panel border-2 border-border bg-card p-6"
             >
+              {/* Added from Version 1 */}
+              <div className="mb-4">
+                <ComicFrame
+                  src={col.img}
+                  label={col.cat}
+                  accent={col.accent}
+                  aspect="16/9"
+                />
+              </div>
+
               <div className="mb-4 flex items-center justify-between border-b border-primary pb-2">
-                <span className="text-xs tracking-[0.3em] text-neon-red" style={{ fontFamily: "Share Tech Mono" }}>{col.cat}</span>
+                <span
+                  className="text-xs tracking-[0.3em] text-neon-red"
+                  style={{ fontFamily: "Share Tech Mono" }}
+                >
+                  {col.cat}
+                </span>
+
                 <span className="h-2 w-2 animate-flicker bg-primary" />
               </div>
+
               <ul className="space-y-3">
                 {col.list.map((it) => (
-                  <li key={it} className="flex items-start gap-3 text-sm text-foreground/90" style={{ fontFamily: "Rajdhani", fontWeight: 500 }}>
+                  <li
+                    key={it}
+                    className="flex items-start gap-3 text-sm text-foreground/90"
+                    style={{
+                      fontFamily: "Rajdhani",
+                      fontWeight: 500,
+                    }}
+                  >
                     <span className="mt-1 h-2 w-2 shrink-0 rotate-45 bg-secondary" />
                     <span>{it}</span>
                   </li>
